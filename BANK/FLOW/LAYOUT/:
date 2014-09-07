@@ -1,0 +1,120 @@
+dependOn_test(){
+dependOn print
+
+dependOn printsdf
+}
+
+dependOnMany_test(){
+    set +e
+    ( dependOnMany print proxy indicator )
+
+}
+
+
+dependOnMany(){
+    set +e
+
+
+    #    exec 1>/dev/null
+    local list="$@"
+    local file
+
+    local file_to_load
+    # assert file_exist $file_list
+    for item in $list;do
+        #        echo $item
+commander         dependOn1 "$item"
+    done
+
+
+}
+
+dependOnTool(){
+    local str="$1"
+    command "$str" &>/dev/null || ( print_color 31 "[ ERROR ] utility not found: $str";sleep 3; )
+}
+
+
+depend_test(){
+    depend_on PROXY/random.cfg random
+    command random 
+    type random
+}
+dependFind(){
+    set -o nounset
+    local file_list=/tmp/sourced_cfg 
+    if [ -f $file_list ];then
+        local item="$1"
+        local  file=${item}.cfg
+        ( type $item &>/dev/null )
+        local res=$?
+        if [ $res -ne 0 ];then
+            echo
+local cmd="cat $file_list | grep \/$file -m1"
+echo "$cmd"
+            file_to_load=$( eval "$cmd"  )
+            if [ -n "$file_to_load" ];then
+
+                if  [ -f "$file_to_load" ];then
+                    commander           source1 $file_to_load
+                    commander    register $file_to_load
+                else 
+                    print error "file not exist: $file_to_load"
+                fi
+            else
+                print error "[ $file_list ] cant find string: [ $file ]"
+            fi
+
+        fi
+    else
+        echo "[ $file_list ] has to be generated to update the index of available library files"
+    fi
+
+}
+dependUSE(){
+    #echo 1>&2 "$(caller)"
+    local file_rel="$1"
+    local runner="${2-}"
+    local file=''
+
+    [ -n "$runner" ] &&  ( type "$runner" &>/dev/null )
+    local res=$?
+    if [ $res -ne 0 ];then
+        file="$dir_root/CODE/$file_rel"
+        (    bash -c $file  ) || ( print error "$file" )
+    else
+        trace "[Assume Already loaded] $file_rel"
+    fi
+}
+
+dependOn1(){
+    #echo 1>&2 "$(caller)"
+    local runner="$1"
+
+    [ -n "$runner" ] &&  ( type "$runner" &>/dev/null )
+    local file_rel=$(dependFind $runner )
+    local res=$?
+    if [ $res -ne 0 ];then
+        local         file="$dir_root/CODE/$file_rel"
+        commander           source1 $file
+        commander    register $file
+
+    else
+        trace "[Assume Already loaded] $file_rel"
+    fi
+}
+dependFind_old(){
+    local str=${1:-}
+    #local dir_self=`where_am_i $BASH_SOURCE`
+    #    dir_library=$dir_root/LIBRARY
+    tree "$dir_library/BANK/CFG" | grep "$str" -A 4 -B 4
+    cat1 /tmp/target | grep $str
+}
+dependOn(){
+    echo `caller`
+    echo deprecated
+    }
+export -f dependOnMany
+export -f dependOn1
+export -f dependOnTool
+export -f dependFind

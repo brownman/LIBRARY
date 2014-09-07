@@ -1,0 +1,50 @@
+
+decide_location_manual_test(){
+    decide_location_manual 30
+}
+
+decide_location_manual(){
+    assert left_bigger $# 1
+    local delta=${1:-10}
+    #manualy decide amount
+    local amount=$( dialog_scale 0 10 1 )
+    let "from = $delta * $amount"
+    print_color 33 "[from] $from"
+    return $from
+}
+
+
+play_from_location(){
+    set -o nounset
+    local     file="$1"
+    local offset=${2:60} #seconds
+    assert file_exist "$file"
+
+    export minute=${minute:-0} #start
+
+
+    local time_1=0
+    local time_2=0
+
+
+
+
+    while :;do
+
+
+        dialog_optional 'continue forwards ?' true
+        res=$?
+        indicator $res
+        if [ $res -eq 0 ];then
+            let 'minute+=1'
+
+            export minute=$minute #bookmar last progress
+            echo $minute
+            xcowsay 'i am a genius' &
+        fi
+        #calculate segment: start-finish 
+        let    "time_1=60*$minute"
+        let     "time_2=$time_1+$offset"
+
+
+    }
