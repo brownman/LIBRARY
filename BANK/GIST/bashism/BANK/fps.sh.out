@@ -1,3 +1,0 @@
-possible bashism in bashisms/fps.sh line 4 (echo -e):
-echo -e "BASHISM" \
-    "something else \n"

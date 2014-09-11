@@ -1,2 +1,0 @@
-possible bashism in bashisms/negations.sh line 4 ([^] should be [!]):
-    [^f]oo) # BASHISM

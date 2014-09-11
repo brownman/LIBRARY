@@ -1,2 +1,0 @@
- cat tags.txt | sed 's/^==>//g' | sed 's/<==//g' | sed -r 's/#+/:/g'  
-

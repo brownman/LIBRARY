@@ -1,9 +1,0 @@
-To configure Automatic ip address(Centos/fedora/etc):
-
-The /etc/sysconfig/network:
-NETWORKING=yes
-
-/etc/sysconfig/network-scripts/ifcfg-eth0 :
-DEVICE=eth0
-BOOTPROTO=dhcp
-ONBOOT=yes

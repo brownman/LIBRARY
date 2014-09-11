@@ -1,7 +1,0 @@
-- Vimtutor: http://www8.cs.umu.se/~janl/vimtutor.txt
-- Heb help:
-http://study.eitan.ac.il/sites/index.php?portlet_id=7&page_id=77
-
-Need help with the keyboard control ??? np:
-http://vim-adventures.com/
-gl, hf.

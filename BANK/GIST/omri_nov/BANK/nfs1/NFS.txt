@@ -1,2 +1,0 @@
-Option A: https://www.digitalocean.com/community/articles/how-to-set-up-an-nfs-mount-on-ubuntu-12-04
-Option B: https://help.ubuntu.com/community/SettingUpNFSHowTo

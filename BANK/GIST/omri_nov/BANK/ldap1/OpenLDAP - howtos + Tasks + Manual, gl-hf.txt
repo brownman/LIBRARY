@@ -1,8 +1,0 @@
--- https://www.digitalocean.com/community/articles/how-to-install-and-configure-a-basic-ldap-server-on-an-ubuntu-12-04-vps
--- http://www.unixmen.com/openldap-installation-configuration-ubuntu-12-1013-0413-10-debian-67-2/
-
-
-*** TurnKey Linux
-
-LDAP howto's - CLI:
-http://www.zytrax.com/books/ldap/ch14/

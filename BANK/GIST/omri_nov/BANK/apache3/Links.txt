@@ -1,6 +1,0 @@
-Guides:
-1) http://www.ubuntugeek.com/how-to-install-apache2-webserver-with-phpcgi-and-perl-support-in-ubuntu-server.html
-
-2)http://prabampm.wordpress.com/2012/01/30/apache-cgi-installation-on-ubuntu-11-10-to-run-phpshell-script-perl-and-python/
-
-3) http://41j.com/blog/2012/09/installing-apache2modperl-on-ubuntu-12-04/

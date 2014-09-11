@@ -1,9 +1,0 @@
-Debian Based server:
-https://wiki.debian.org/openvpn%20for%20server%20and%20client
-
-Ubuntu Based Server:
-http://ubuntuguide.org/wiki/OpenVPN_server
-
-
-Client example: 
-http://www.linux.com/learn/tutorials/459675-configure-linux-clients-to-connect-to-openvpn-server

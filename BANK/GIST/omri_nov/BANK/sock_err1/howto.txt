@@ -1,6 +1,0 @@
->>> http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-lemp-on-ubuntu-13.04
-
-
-
-http://www.lonelycoder.be/nginx-php-fpm-mysql-phpmyadmin-on-ubuntu-12-04/
-http://wplifeguard.com/install-linux-nginx-php-fpm-mysql-lemp-wordpress-on-ubuntu/

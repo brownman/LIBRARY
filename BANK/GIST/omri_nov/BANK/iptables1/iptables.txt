@@ -1,3 +1,0 @@
-extra examples - pay attantion to the iptables:
-http://online-linux.blogspot.co.il/2011/02/configure-squid-with-dansguardian.html
-https://help.ubuntu.com/community/DansGuardian

@@ -1,6 +1,0 @@
-- http://linuxgizmos.com/linux-drone-hijacks-other-drones-in-mid-flight/
-- http://linuxgizmos.com/linux-based-underwater-robot-goes-faster-longer/
-- https://www.linux.com/news/embedded-mobile/mobile-linux/751551-linux-on-google-robots-and-amazon-drones
-- http://linuxgizmos.com/ar-drone-2-quadrocopter-gains-cool-features/
-- http://www.linuxtoday.com/upload/linux-drone-hijacks-other-drones-in-mid-flight-131205140506.html
-- http://www.theregister.co.uk/2012/01/12/drone_consoles_linux_switch/

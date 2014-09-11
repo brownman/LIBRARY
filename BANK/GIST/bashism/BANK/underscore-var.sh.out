@@ -1,2 +1,0 @@
-possible bashism in bashisms/underscore-var.sh line 3 ($_):
-echo BASHISM $_

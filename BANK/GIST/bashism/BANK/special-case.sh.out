@@ -1,4 +1,0 @@
-possible bashism in bashisms/special-case.sh line 6 (;;& and ;& special case operators):
-	;& # BASHISM
-possible bashism in bashisms/special-case.sh line 9 (;;& and ;& special case operators):
-	;;& # BASHISM
