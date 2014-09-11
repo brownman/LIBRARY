@@ -1,0 +1,34 @@
+1. Display the /var/run/utmp file.
+who
+
+2. Display the /var/log/wtmp file.
+last
+
+3. Use the lastlog and lastb commands, understand the difference.
+lastlog : when users last logged on
+lastb: failed (bad) login attempts
+
+4. Examine syslog to find the location of the log file containing ssh failed logins.
+root@rhel53 ~# grep authpriv /etc/syslog.conf 
+authpriv.*      /var/log/secure
+ 
+Debian/Ubuntu: /var/log/auth.log
+
+
+Ubuntu 9.10 and Debian Lenny have switched to using rsyslog.
+root@ubuntu910:~# grep authpriv /etc/rsyslog.d/50-default.conf 
+auth,authpriv.*   /var/log/auth.log
+ 
+root@deb503:~# grep authpriv /etc/rsyslog.conf 
+auth,authpriv.*   /var/log/auth.log
+ 
+5. Configure syslog to put local4.error and above messages in /var/log/l4e.log and
+local4.info only .info in /var/log/l4i.log. Test that it works with the logger tool!
+echo local4.error /var/log/l4e.log >> /etc/syslog.conf
+echo local4.=info /var/log/l4i.log >> /etc/syslog.conf
+/etc/init.d/syslog restart
+
+6. Configure /var/log/Mysu.log, all the su to root messages should go in that log. Test
+that it works!
+echo authpriv.*  /var/log/Mysu.log >> /etc/syslog.conf
+This will log more than just the su usage.

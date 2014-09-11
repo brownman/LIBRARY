@@ -1,0 +1,22 @@
+
+example 2
+
+#!/bin/bash
+file="$1"
+if [ -f "$file" ]
+then
+	echo "$file found."
+else
+	echo "$file not found."
+fi
+
+if [ "$#" == "0" ] 
+ then
+  echo "no such file"
+  exit 1
+fi
+while (( $# ))
+ do
+  touch $1
+  shift
+ done

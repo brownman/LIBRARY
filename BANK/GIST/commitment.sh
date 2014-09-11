@@ -1,3 +1,5 @@
+
+
 #depend: yad gxmessage
 #info: make a commitment - write it down.
 #set -e
@@ -7,8 +9,15 @@ use assert
 use flite1
 use pipe_translate
 use file_update
+use dialog_scale
+use dialog_sleep
+use print
+use exiting
 #use trap_err
 #$cmd_trap_err
+clear
+print error use yad instead
+exiting
 
 update_commitment(){
   local line="${line:-}"
@@ -46,9 +55,12 @@ intro(){
 }
 
 file_done=/tmp/done
-delay=${1:-60}
+min=$( dialog_scale )
+indicator $?
+let "delay=60*$min"
+#delay=${1:-60}
 
 touch $file_done
-assert file_exist "$file_done"
+commander assert file_exist "$file_done"
 update_commitment
 

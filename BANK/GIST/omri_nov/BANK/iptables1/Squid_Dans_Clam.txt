@@ -1,0 +1,5 @@
+--- http://sltechtalk.blogspot.co.il/2013/07/transparent-squid3-with-dansguardian.html << Recommended ! 
+
+
+- http://kamleshgosavi.blogspot.co.il/2011/01/dansguardian-content-filtering-with.html
+- http://www.howtoforge.com/dansguardian-content-filtering-with-transparent-proxy-on-ubuntu-9.10-karmic

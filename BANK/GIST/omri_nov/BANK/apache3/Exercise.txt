@@ -1,0 +1,12 @@
+- Install a web server + database service( i.e. apache + mysql )
+- add a basic support in the following programming languages: PHP5 + CGI/Perl ( Python support is optional - recommended with great..... recommedned! )
+- Create an empty file with the following content:
+--- 1 File file for each supported programming language you previously installed( david.pl, david.php, yossi.py, etc -_-'! )
+
+- Smile ;]
+
+
+Apache standalone:
+- Apache + SSL
+- Apache + PHP
+- Apache + Perl

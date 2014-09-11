@@ -1,0 +1,148 @@
+.
+├── 2013-12-05
+│   ├── breath.cfg
+│   └── cfg
+│       ├── 1.docx
+│       ├── P1.xps
+│       └── P2.txt
+├── 2013-12-09
+│   ├── breath.cfg
+│   ├── H.W.txt
+│   └── notes_1-8.txt
+├── 2013-12-12
+│   ├── breath.cfg
+│   ├── Example.txt
+│   ├── Exercise_#1-gl-hf-bb.txt
+│   └── Part1_2.docx
+├── 2013-12-16
+│   ├── breath.cfg
+│   └── VIM.txt
+├── 2013-12-19
+│   ├── 1.txt
+│   ├── APT.txt
+│   ├── breath.cfg
+│   └── Your-guide-to-a-better-place.txt
+├── 2013-12-23
+│   ├── breath.cfg
+│   ├── DHCPclient_Auto_IP_Centos-fedora.txt
+│   ├── Proftpd_Centos_RPM_YUM.docx
+│   ├── rpm-yum-cheetsheet.docx
+│   └── Static_IP_configuration_Centos-fedora.txt
+├── 2013-12-26
+│   ├── Apache_From_Source.txt
+│   ├── Apache_link.txt
+│   ├── breath.cfg
+│   └── link.txt
+├── 2013-12-30
+│   ├── Basics.docx
+│   ├── breath.cfg
+│   └── gl-hf-repeat-at-home.docx
+├── 2014-01-02
+│   ├── Answers.docx
+│   ├── Basic_Day1.PNG
+│   ├── breath.cfg
+│   ├── Capture.PNG
+│   ├── Support.docx
+│   └── Thumbs.db
+├── 2014-01-06
+│   ├── breath.cfg
+│   ├── example-1_A.txt
+│   ├── example2_mixed_A.txt
+│   ├── Scripting.docx
+│   └── shift_example.txt
+├── 2014-01-09
+│   ├── 09-01-2014.rar
+│   ├── 1.docx
+│   ├── breath.cfg
+│   ├── Exercise.PNG
+│   └── Thumbs.db
+├── 2014-01-13
+│   ├── breath.cfg
+│   ├── Fixthis_1.txt
+│   └── Homework
+│       ├── gfiles_tofix.sh
+│       └── Homework.txt
+├── 2014-01-16
+│   ├── breath.cfg
+│   └── Control-Panel-Exercise.txt
+├── 2014-01-20
+│   ├── breath.cfg
+│   └── Samba.txt
+├── 2014-01-23
+│   ├── breath.cfg
+│   ├── iptables1.txt
+│   ├── iptables.txt
+│   └── practice.txt
+├── 2014-01-27
+│   ├── breath.cfg
+│   └── NFS.txt
+├── 2014-01-30
+│   ├── breath.cfg
+│   ├── Exercise.txt
+│   ├── Links.txt
+│   └── MyFirstPerlProgram.txt
+├── 2014-02-03
+│   ├── breath.cfg
+│   └── NTP-easy-and-fun-gl-hf-hw.txt
+├── 2014-02-06
+│   ├── breath.cfg
+│   ├── CRON.docx
+│   ├── CRON_Examples-links.txt
+│   ├── Doc1.docx
+│   └── Part_B.docx
+├── 2014-02-10
+│   ├── breath.cfg
+│   ├── hello.world.-use-the-force-mate.PNG
+│   ├── Solution-type-1.txt
+│   ├── Support.txt
+│   └── Thumbs.db
+├── 2014-02-13
+│   ├── breath.cfg
+│   ├── fork-bomb.txt
+│   ├── mem&log-exercise.docx
+│   └── ~$m&log-exercise.docx
+├── 2014-02-17
+│   ├── breath.cfg
+│   └── Drones-info.txt
+├── 2014-02-24
+│   ├── breath.cfg
+│   └── DNS-Notes.txt
+├── 2014-02-27
+│   ├── breath.cfg
+│   └── DNS is fun
+│       ├── DNS Exercise__gl-hf-bb.txt
+│       ├── StepByStep_BIND_Named(DNS) Server.docx
+│       └── ttl.txt
+├── 2014-03-03
+│   ├── breath.cfg
+│   ├── root hints.txt
+│   └── This document describes the process of installing Bind 9.docx
+├── 2014-03-06
+│   ├── breath.cfg
+│   └── ex DNS final.txt
+├── 2014-03-13
+│   ├── breath.cfg
+│   ├── OpenVPN-client-Server.txt
+│   ├── phy.png
+│   ├── Thumbs.db
+│   └── VirtualMachine-topology.png
+├── 2014-03-17
+│   ├── breath.cfg
+│   ├── dans.txt
+│   └── squid-gl-hf-bb.docx
+├── 2014-03-20
+│   ├── 2014-03-20.rar
+│   ├── breath.cfg
+│   ├── info.docx
+│   ├── iptables.txt
+│   └── Squid_Dans_Clam.txt
+├── 2014-03-24
+│   ├── breath.cfg
+│   └── OpenLDAP - howtos + Tasks + Manual, gl-hf.txt
+├── 2014-03-27
+│   ├── breath.cfg
+│   ├── howto.txt
+│   └── sock error.txt
+└── list.txt
+
+34 directories, 111 files

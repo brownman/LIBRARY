@@ -1,0 +1,37 @@
+3 chains 
+-input-incoming traffic
+-output-outgoing traffic
+-forward-forward traffic
+--whrereis ip tables -> $var=/path/to/iptables
+flush the firewall ruls 
+-iptables -F
+***Default Policies***
+allow outgoing connections(default policy for outgoing traffic)
+-iptables -P OUTPUT ACCEPT
+deny incoming connections(default policy for incoming traffic)
+-iptables -P  INPUT DROP
+deny forwarding (default policy for forwarding traffic)
+-iptables -P FORWARD DROP
+***loopback(INPUT CHAIN)***
+Allow incoming traffic to loopback interface
+-iptables -A --in-interface lo -j ACCEPT
+***incoming ***
+allow traffic to port 80
+-iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+***out and in***
+allow outgoing traffic back in 
+-iptables -A INPUT -m state --state ESTABLISHED, RELATED -j ACCEPT
+***branching chains***
+iptables -A INPUT -j NEWCHAIN
+
+
+
+
+
+
+-P = policy 
+-a = append to chain 
+-p = protocol
+-j = jump to terget (ACCEPT,DROP etc.) 
+-m = match with connection status (establish, new, related etc.) 
+-N = create a new chain

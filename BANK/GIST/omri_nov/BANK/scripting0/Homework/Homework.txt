@@ -1,0 +1,12 @@
+- 13/01/2013 - Exercise:
+1) Fix the attached script 'gfiles_tofix.sh':
+- Create new file every 5 minutes 
+- Each file will include '.jpg' extension
+- Each filename will include the day and/or hour it was originally created in
+-- Pay *Extra* attention on the synatx + system performance/etc(close the loop/etc)
+
+2) Create a script the will do the following
+- Create a Backup directory
+- Create a backup of all the '.xml' files in the same directory(i.e. in the one the scripts run from )
+- Will create a 'list' file that contains: the run date/time, the files ATM the script was executed, including the file size(each file + SUM )
+- The script will create the new files, when each file will include the original name + '.bak' extension.

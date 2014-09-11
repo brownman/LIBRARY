@@ -1,0 +1,7 @@
+
+backup iptables  
+flush iptables 
+create new policies
+cearte new rull to allow access to the ssh
+romtly throgh putty install vsftpd 
+cearte new rull to allow access to the ftp server 

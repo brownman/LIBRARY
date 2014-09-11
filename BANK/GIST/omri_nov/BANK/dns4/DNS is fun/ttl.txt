@@ -1,0 +1,1 @@
+https://deepthought.isc.org/article/AA-00303/0/Why-does-named-log-the-warning-message-no-TTL-specified-using-SOA-MINTTL-instead.html

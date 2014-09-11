@@ -1,0 +1,28 @@
+Source: abs-guide
+Section: non-free/doc
+Priority: optional
+Maintainer: Sandro Tosi <morph@debian.org>
+Build-Depends: debhelper (>= 7.0.50)
+Standards-Version: 3.9.3
+Homepage: http://www.tldp.org/LDP/abs/html/
+Vcs-Git: git://git.debian.org/users/morph/abs-guide.git
+Vcs-Browser: http://git.debian.org/?p=users/morph/abs-guide.git
+
+Package: abs-guide
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: lynx | www-browser
+Description: The Advanced Bash-Scripting Guide
+ An in-depth exploration of the art of shell scripting.
+ .
+ This tutorial assumes no previous knowledge of scripting or
+ programming, but progresses rapidly toward an intermediate/advanced
+ level of instruction ... all the while sneaking in little snippets
+ of UNIX(R) wisdom and lore. It serves as a textbook, a manual for
+ self-study, and a reference and source of knowledge on shell
+ scripting techniques. The exercises and heavily-commented examples
+ invite active reader participation, under the premise that the only
+ way to really learn scripting is to write scripts.
+ .
+ This book is suitable for classroom use as a general introduction to
+ programming concepts.

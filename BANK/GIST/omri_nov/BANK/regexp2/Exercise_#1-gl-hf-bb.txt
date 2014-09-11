@@ -1,0 +1,15 @@
+- Replace every occurrence of Nick with John in report.txt
+- Replace every occurrence of Nick or nick with David.
+- Add 8 spaces to the left of a text for pretty printing.
+- Display only one paragraph, starting with "vulputate" and ending in "rhoncus ut"
+- Show only lines 9-14 of report.txt
+- Show all of report.txt except for lines from 9 to 14
+- Double-space report.txt
+- Delete all lines from line 17 to 'leo eget'
+- Triple-space a file
+- Delete all spaces in front of every line of file.txt
+- Delete all spaces at the end of every line of file.txt
+- Replace Lorem with bar only for the first instance in a line.
+- Replace Lorem with bar only for the 4th instance in a line.
+- Replace Lorem with bar for all instances in a line.
+- Only if line contains tincidunt, substitute Lorem with Ipsum

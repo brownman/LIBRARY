@@ -1,0 +1,15 @@
+# this synopsys is more descriptive
+
+description-synopsis-starts-with-article
+
+# These are scripts "known" to be syntax incorrect, usually containing some sort of text
+# at the bottom of the file
+
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/bashpodder.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/find-splitpara.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/insertion-sort.bash
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/mailbox_grep.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/missing-keyword.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/pb.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/readpipe.sh
+example-shell-script-fails-syntax-check usr/share/doc/abs-guide/examples/weirdvars.sh

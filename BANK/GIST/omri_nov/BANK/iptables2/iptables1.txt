@@ -1,0 +1,30 @@
+***iptable information***
+iptables -V
+iptables -L
+iptables -S
+***flushing iptables***
+iptables -F
+
+3 chains input,output,forword
+
+nano MyFirewll.sh
+IPT=/sbin/iptables
+$IPT -F
+$IPT -P OUTPUT ACCEPT
+$IPT -P INPUT DROP
+$IPT -P FORWORD DROP
+
+$IPT -A INPUT --in-interface lo JUMP ACCEPT
+
+***krnel moduls***
+modeprobe x_tables
+modeprobe ip_tables
+modeprobe iptable_filter 
+modeprobe xt_tcpudp
+modeprobe nf_conntrack
+modeprobe xt_state
+modeprobe nf_conntrack_ipv4 
+
+whereis iptables
+
+https://wiki.debian.org/iptables 

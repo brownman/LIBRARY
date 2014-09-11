@@ -1,0 +1,28 @@
+1. install webmin if not installed
+
+2. add the bind DNS module if not enabled
+
+3. do the configuration from last 2 sessions using the webmin interface.
+
+4. allow zone transfer to the IP of the Client VM.
+
+5. on the client VM use nslookup to query the dns server:
+	
+	* 1 iterative query.
+	
+	* 1 recursive query.
+	
+	* zone transfer from the server to the VM.
+
+6. re-configure the zone to not allow zone transfer.
+
+7. re-configure the zone to not allow recursive answers.
+
+8. on the client VM use nslookup to:
+	
+	* 1 recurcive query --> check that it is not allowed
+	
+	* try to zone transfer to the client VM --> check that it is not allowed
+	
+	
+:)

@@ -1,0 +1,6 @@
+Practice:
+1) Create a directory, owned by the group hackeru
+2) Members of the hackeru group should be able to create files in this directory
+3) All files created in this directory should be group-owned by the hackeru group
+4) Users should be able to delete only their own user-owned files
+5) Test that this actualy works!

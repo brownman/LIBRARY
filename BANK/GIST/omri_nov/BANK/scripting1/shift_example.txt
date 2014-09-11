@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 package(s)-name"
+        exit 1
+fi
+while (($#)); do
+	apt-get install "$1" --yes
+	shift
+done

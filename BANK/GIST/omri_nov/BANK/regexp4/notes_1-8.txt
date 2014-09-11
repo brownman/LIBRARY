@@ -1,0 +1,15 @@
+1) sed 's/ \/usr\/local\/bin/ \/common\/bin/' <old >new
+
+2) sed 's_/usr/local/bin_/common/bin_' <old >new
+
+3) sed 's:/usr/local/bin:/common/bin:' <old >new
+
+4) sed 's|/usr/local/bin|/common/bin|' <old >new
+
+5) sed 's/abc/(abc)/' <old >new
+
+6) sed 's/[a-z]*/(&)/' <old >new
+
+7) echo "123 abc" | sed 's/[0-9]*/& &/'
+
+8) sed -e "4s/bike/car/"

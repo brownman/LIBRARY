@@ -1,0 +1,1 @@
+ Please try to replace in php-fpm pool configuration listen = /var/run/php5-fpm.sock with listen = 127.0.0.1:7777 and in /etc/nginx/php_location fastcgi_pass   unix:/var/run/php5-fpm.sock; with fastcgi_pass 127.0.0.1:7777; 

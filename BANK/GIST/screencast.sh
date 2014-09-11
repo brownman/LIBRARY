@@ -1,6 +1,6 @@
 #!/bin/bash
 # http://xmodulo.com/2014/05/take-screenshot-command-line-linux.html
-
+clear
 set -o nounset
 #set -e
 
@@ -17,6 +17,7 @@ use disown1
 use dialog_optional
 use dialog_confirm
 use dialog_sleep
+use cat1
 
 
 
@@ -90,7 +91,7 @@ dialog_sleep $seconds
 
 #commander indicator "$?"
 
-dialog_optional_cmd 'view recent recording?' 'disown1 showing'
+dialog_optional_cmd 'view recent recording?' 'showing'
 #kill -2 0
 #commander  sleep 3
 
@@ -104,7 +105,9 @@ dialog_optional_cmd 'view recent recording?' 'disown1 showing'
 }
 
 
-steps  # && showing
+steps & # && showing
+echo $! > /tmp/screencast.pid
+cat1 /tmp/screencast.pid true
 
 #https://www.youtube.com/watch?v=mNz5Lrc06_s
 #https://wiki.archlinux.org/index.php/RecordMyDesktop

@@ -1,0 +1,3 @@
+Welcome to the ShellCheck wiki! Any help with creating pages explaining errors is greatly appreciated!  
+
+Just copy the [[Template]] and give it a name like [[Sc1000]], and bask in unending appreciation from shell scripters world wide!

@@ -1,0 +1,39 @@
+# cd /etc/sysconfig/network-scripts/
+
+/etc/sysconfig/network-scripts/ifcfg-eth0: First Ethernet card configuration file
+/etc/sysconfig/network-scripts/ifcfg-eth1: Second Ethernet card configuration file
+To edit/create first NIC file, type command:
+# vi ifcfg-eth0
+
+DEVICE=eth0
+BOOTPROTO=static
+DHCPCLASS=
+HWADDR=00:30:48:56:A6:2E
+IPADDR=10.10.10.15
+NETMASK=255.255.255.192
+ONBOOT=yes
+
+/etc/sysconfig//network file:
+# vi /etc/sysconfig/network
+Append/modify configuration as follows:
+
+NETWORKING=yes
+HOSTNAME=myserver.example.com
+GATEWAY=10.10.10.1
+
+
+Restart networking:
+
+# /etc/init.d/network restart
+
+Setup DNS server defined in /etc/resolv.conf file:
+
+# vi /etc/resolv.conf
+
+Setup DNS Server as follows:
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+Save and close the file. Now you can ping the gateway/other hosts:
+
+$ ping google.com

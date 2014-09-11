@@ -1,0 +1,28 @@
+DNS Server - Windows(Server 2003-2013), UBS(UNIX, *BSD, Linux, etc)
+DNS Client - ( End-point - aka as: Computer, Device, Network Router, CellPhone, etc....... etc.... ...... :P )
+
+DNS Zone: Nana.co.il:
+SOA - Start of Authority:
+
+
+
+Subdomains,
+Reverse(PTR - Pointer)
+
+DNS Records:
+A - Hostname >> IPv4
+AAAA - Hostname >> IPv6
+CNAME - Hostname >> Hostname
+MX
+TXT
+
+Nana Zone:
+1) A Record: Nana.co.il == 212.143.70.40
+2) 
+CNAME: nana10.co.il == nana.co.il
+CNAME: www.10.tv == nana.co.il
+CNAME: www.nana.co.il == nana.co.il
+
+3) MX - Mail (e)Xchanger == x@nana.co.il >> 212.100.2.2 - aka Mail server.
+
+4) TXT = TEXT - 
