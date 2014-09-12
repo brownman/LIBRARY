@@ -1,6 +1,6 @@
 pushd `dirname $0` >/dev/null
 
-exec 2> >( tee /tmp/err >&2)
+exec 2> >( tee /tmp/err >&2 )
 
 [ $# -gt 0 ] || { echo 1>&2 'no args'; exit 1; }
 
