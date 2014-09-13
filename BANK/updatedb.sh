@@ -13,7 +13,7 @@ MODE_UPDATE=0
 
 #cmd="tree -if --noreport **/ > $file"
 #cmd='ls -1 **/*.* > $file'
-cmd='find * -type f >$file'
+cmd='find * -type f | grep -v '.old' >$file'
 
 
 

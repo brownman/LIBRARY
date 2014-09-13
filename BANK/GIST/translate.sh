@@ -60,10 +60,10 @@ step2(){
       output_wsp=$(echo "$output"|sed 's/ /+/g');
       output_ws=$(echo "$output"|sed 's/ /_/g');
       echo "$output"
-      broadcast1 "$output"
+      broadcast "$output"
       if [ "$phonetics" ];then
         echo  "$phonetics"
-        broadcast1 "$phonetics"
+        broadcast "$phonetics"
       fi  
     else
       echo reason_of_death 'no results'
