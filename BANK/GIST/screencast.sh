@@ -104,10 +104,12 @@ dialog_optional_cmd 'view recent recording?' 'showing'
   #breaking
 }
 
-
-steps & # && showing
-echo $! > /tmp/screencast.pid
-cat1 /tmp/screencast.pid true
+while :;do
+dialog_optional 'record new screencast ?' || break
+steps #& # && showing
+#echo $! > /tmp/screencast.pid
+#cat1 /tmp/screencast.pid true
+done
 
 #https://www.youtube.com/watch?v=mNz5Lrc06_s
 #https://wiki.archlinux.org/index.php/RecordMyDesktop

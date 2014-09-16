@@ -65,7 +65,7 @@ intro(){
 }
 
 file_done=/tmp/done
-min=$( dialog_scale )
+min=$( dialog_scale 'Estimate duration (m)')
 indicator $?
 let "delay=60*$min"
 #delay=${1:-60}
