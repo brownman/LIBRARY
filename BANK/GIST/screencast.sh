@@ -18,7 +18,8 @@ use dialog_optional
 use dialog_confirm
 use dialog_sleep
 use cat1
-
+use assert
+depend byzanz-record
 
 
 trap_exit(){
