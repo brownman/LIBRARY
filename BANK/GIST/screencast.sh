@@ -1,5 +1,6 @@
 #!/bin/bash
 # http://xmodulo.com/2014/05/take-screenshot-command-line-linux.html
+source /tmp/library.cfg
 clear
 set -o nounset
 #set -e
@@ -19,7 +20,7 @@ use dialog_confirm
 use dialog_sleep
 use cat1
 use assert
-depend byzanz-record
+commander depend byzanz-record
 
 
 trap_exit(){
@@ -106,7 +107,7 @@ dialog_optional_cmd 'view recent recording?' 'showing'
 }
 
 while :;do
-dialog_optional 'record new screencast ?' || break
+commander dialog_optional  'record new screencast ?' 'y/n' || break
 steps #& # && showing
 #echo $! > /tmp/screencast.pid
 #cat1 /tmp/screencast.pid true
