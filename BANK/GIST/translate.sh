@@ -83,7 +83,9 @@ step3(){
     fi
     if  [ -s "$file_mp3" ];then
 
-      cmd="play -V1 -q  $file_mp3"
+
+ cmd="play -V1 -q  $file_mp3"
+#      cmd="paplay  $file_mp3"
       #    mpg321 $file_mp3 1> /dev/null
       echo "[PLAYING] $cmd";  
       eval "$cmd" 2>/tmp/err
