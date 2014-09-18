@@ -93,7 +93,7 @@ dialog_sleep $seconds
 
 #commander indicator "$?"
 
-dialog_optional_cmd 'view recent recording?' 'showing'
+dialog_optional 'view recent recording?' && showing
 #kill -2 0
 #commander  sleep 3
 
