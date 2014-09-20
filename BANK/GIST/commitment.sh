@@ -6,6 +6,7 @@
 #set -x
 set -o nounset
 #set -e
+
 use vars
 use assert
 use flite1
@@ -65,7 +66,7 @@ update_commitment(){
     local line_new="$time1\t $line"
     file_update "$file_done" "$line_new"
 word=$( exec 2>/dev/null    $builtin_string_to_buttons $line )
-test -n "$word" && ( commander        pipe_translate $word )
+test -n "$word" && ( commander        pipe_translate $word ) || trace
 
        #echo  pipe_translate "$word"; 
 
@@ -79,10 +80,19 @@ test -n "$word" && ( commander        pipe_translate $word )
   fi
 }
 
+#$cmd_trap_err
+#$cmd_trap_exit
+#$cmd_trap_err
+
+set -e
+
 file_done=/tmp/done
-min=$( dialog_scale 'Estimate duration (m)')
-indicator $?
-let "delay=60*$min"
+min=$( dialog_scale 'Estimate duration (m)' )
+test -n "$min" || { exiting;  }
+#indicator $?
+#commander print_g gay $min
+eval "let 'delay = 60 * $min'"
+
 #delay=${1:-60}
 
 touch $file_done
