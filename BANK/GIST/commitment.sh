@@ -20,6 +20,20 @@ use_sh string_to_buttons
 #$cmd_trap_err
 #print error use yad instead
 #exiting
+intro_motivation(){
+  xcowsay 'describe your wish - what you want to get'  &
+
+    sleep .6
+  xcowsay '+ what u do for others!! on suspension' &
+
+    sleep .6
+    xcowsay 'practicing' &
+
+    sleep .4
+    xcowsay 'time estimation' &
+    sleep .4
+  xcowsay 'peace of cake'
+}
 
 update_commitment(){
   set -u
@@ -28,12 +42,17 @@ update_commitment(){
   local cmd=""
   local word=''
   while [ -z "$line" ];do
-    flite1 "it is easy for a robot - what do u want to do lazy boy ?" &
+    #flite1 "it is easy for a robot - what do u want to do lazy boy ?" &
     #next easy mission"
+
     title="Easy For Robot"
-    cmd="gxmessage -font \"$GXMESSAGE_FONT\" -entrytext \"$line\" -title \"$title\" -file \"$file_done\"  $GXMESSAGE_T_S"
+#intro_motivation
+    
+    cmd="gxmessage -font \"$FONT\" -entrytext \"$line\" -title \"$title\" -file \"$file_done\"  $GXMESSAGE_T_S"
+    print color 33 $cmd
 #    echo $cmd
     line=$(    eval "$cmd" 2>/dev/null  )
+    #break
   done
   if [ "$line" = exit ];then
     xcowsay exiting
@@ -42,11 +61,11 @@ update_commitment(){
     echo -n '' > $file_done  
     return 0
   else
-      flite -t 'it is easy for me - you are a little monkey' &
+      #flite -t 'it is easy for me - you are a little monkey' &
     local line_new="$time1\t $line"
     file_update "$file_done" "$line_new"
 word=$( exec 2>/dev/null    $builtin_string_to_buttons $line )
-commander        pipe_translate $word
+test -n "$word" && ( commander        pipe_translate $word )
 
        #echo  pipe_translate "$word"; 
 
@@ -58,10 +77,6 @@ commander        pipe_translate $word
     fi
     echo "$line"
   fi
-}
-intro(){
-  xcowsay 'describe your wish - what you want to get'
-  xcowsay '+ what u do for others!! on suspension'
 }
 
 file_done=/tmp/done
