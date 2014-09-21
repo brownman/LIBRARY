@@ -3,7 +3,9 @@
 export MODE_SOUND=true
 set -o nounset
 #$cmd_trap_err
-set -e
+#set -e
+$cmd_trap_err
+#$cmd_trap_exit
 
 sanitize_string(){
   local   str="$@"
