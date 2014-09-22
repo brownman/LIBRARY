@@ -125,7 +125,6 @@ step3(){
 steps(){
 
   set_env
-  blaaahhh
   #exiting
   step0
   step1
