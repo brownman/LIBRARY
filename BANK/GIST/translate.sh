@@ -1,10 +1,22 @@
 #info: translate a string using google scrapping
 #depend: wget sox
-export MODE_SOUND=true
+
 set -o nounset
-#$cmd_trap_err
-#set -e
-$cmd_trap_err
+
+set_env(){
+  MAX_WORDS=30
+  MAX_CHARS=400
+  export MODE_SOUND=${MODE_SOUND:-true}
+  delay_phone=1
+
+  use ensure
+  use flite1
+  use paplay1
+  use broadcast
+
+  commander $cmd_trap_err
+}
+#commander depend mpg123
 #$cmd_trap_exit
 
 sanitize_string(){
@@ -45,8 +57,11 @@ step1() {
   #file_mp3=$(  echo $dir_mp3/${input_ws}_${lang}.mp3 );
   #    file_html=$(  echo $dir_html/${input_ws}_${lang}.html );
   file_mp3=$(  echo $dir_mp3/${file_name}_${lang}.mp3 );
-  echo "naming: input_wsp: $input_wsp";
-  echo "naming: file_mp3:  $file_mp3";
+
+  #file_wav=/tmp/output.wav
+  trace "naming: input_wsp: $input_wsp" true
+  trace "naming: file_mp3:  $file_mp3" true
+  #trace "naming: file_wav:  $file_wav" true
 }
 
 step2(){
@@ -62,10 +77,11 @@ step2(){
       output_wsp=$(echo "$output"|sed 's/ /+/g');
       output_ws=$(echo "$output"|sed 's/ /_/g');
       echo "$output"
-      broadcast "$output"
+      broadcast "$output" &
       if [ "$phonetics" ];then
         echo  "$phonetics"
-        broadcast "$phonetics"
+        sleep $delay_phone
+        broadcast "$phonetics" &
       fi  
     else
       echo reason_of_death 'no results'
@@ -74,45 +90,49 @@ step2(){
 }
 
 step3(){
-  set -e
+  local cmd
   local chars=$( echo "$input" | wc --chars  )
   local words=$( echo "$input" | wc --words  )
   if [ $chars -lt $MAX_CHARS ] && [ $words -lt $MAX_WORDS ] ;then
     if [ ! -f "$file_mp3" ];then
       wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 
     else
-      echo "use cached file"
+
+      trace "use cached file" true
+      commander "du -b $file_mp3" 1>&2 
     fi
     if  [ -s "$file_mp3" ];then
 
 
- cmd="play -V1 -q  $file_mp3"
-#      cmd="paplay  $file_mp3"
+      # cmd="play -V1 -q  $file_mp3"
+      #      cmd="paplay  $file_mp3"
+      #http://www.cyberciti.biz/faq/convert-mp3-files-to-wav-files-in-linux/
+      #commander mpg321 -w $file_wav $file_mp3
+      #cmd="paplay1 $file_wav"
+      cmd="paplay2 $file_mp3"
       #    mpg321 $file_mp3 1> /dev/null
-      echo "[PLAYING] $cmd";  
-      eval "$cmd" 2>/tmp/err
-
-      sleep 1
+      print color 34 "[PLAYING] $cmd";  
+      commander_gxmessage "$cmd" #2>/tmp/err
+      commander sleep 2
     else
-      echo "[Error] file not found: $file"
+      print error "[Error] file not found: $file"
     fi
   else
     print error "[skipping] string is away to long"
   fi
 
 }
-set_env(){
-  MAX_WORDS=30
-  MAX_CHARS=400
-}
 steps(){
 
   set_env
+  blaaahhh
+  #exiting
   step0
   step1
   step2
-  [ "$MODE_SOUND" = true ] &&  step3
+  [ "$MODE_SOUND" = true ] &&  step3 || ( print color 36 '[reminder] MODE:MUTE' )
 }
+
 if [ $# -gt 1 ];then
   lang="$1"
   shift
