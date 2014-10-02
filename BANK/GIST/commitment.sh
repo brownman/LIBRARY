@@ -1,5 +1,5 @@
 
-sleep 5
+#sleep 5
 
 #depend: yad gxmessage
 #info: make a commitment - write it down.
@@ -23,6 +23,14 @@ use_sh string_to_buttons
 #$cmd_trap_err
 #print error use yad instead
 #exiting
+set_env(){
+#commander ensure touch $file_done
+
+touch $file_done
+commander assert file_exist "$file_done"
+}
+
+
 intro_motivation(){
 cat << FILE
 describe your wish - what you want to get  
@@ -56,17 +64,19 @@ echo $delay
 
 steps(){
 set_env
-local line=$( dialog_add_line $file_done ) 
+set -e
+set -u
+local line_recent=''
+test -s $file_done && { set -o pipe_fail; line_recent=$(cat $file_done | tail -1 | cut -d' ' -f2- ); }
+print color 33 line_recent $line_recent
+#exiting 
+sleep 1
+local line=$( dialog_add_line $file_done  "$line_recent" ) 
 local num=$( set_sleep )
 
 ext "$line"  &
 commander 'dialog_sleep $num $line'
 
-}
-
-set_env(){
-commander ensure touch $file_done
-commander assert file_exist "$file_done"
 }
 
 

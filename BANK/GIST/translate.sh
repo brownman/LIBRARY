@@ -2,30 +2,45 @@
 #depend: wget sox
 
 set -o nounset
-
+#$cmd_trap_err
+trap - ERR
+exec -c
+#set -x
+#set -e
+#set -e
+#set -x
+trap_err(){
+  print func
+  print error 
+$str_caller
+exit 0
+}
+#trap trap_err ERR
+#export -f trap_err
 set_env(){
-  MAX_WORDS=30
-  MAX_CHARS=400
-  export MODE_SOUND=${MODE_SOUND:-true}
-  delay_phone=1
-
+use vars
   use ensure
   use flite1
   use paplay1
   use broadcast
 
-  commander $cmd_trap_err
+  MAX_WORDS=30
+  MAX_CHARS=400
+  export MODE_SOUND=${MODE_SOUND:-true}
+  delay_phone=1
+ 
+#  commander $cmd_trap_err
 }
 #commander depend mpg123
 #$cmd_trap_exit
 
-sanitize_string(){
+sanitize_string1(){
   local   str="$@"
-  local str_clean=${str//[^a-zA-Z0-9 ]/ }
+  local str_clean="${str//[^a-zA-Z0-9 ]/ }"
   echo "$str_clean"
 
 }
-sanitize_filename(){
+sanitize_filename1(){
   #url: http://stackoverflow.com/questions/89609/in-a-bash-script-how-do-i-sanitize-user-input
   local str=$( echo "$@" )
 
@@ -52,7 +67,7 @@ step1() {
 
   ##sanitize file names
   file_name=$( echo "$input_ws" | cut -d'_' -f1,2,3 )
-  file_name=$( sanitize_filename "$file_name" )
+  file_name=$( sanitize_filename1 "$file_name" )
   file_txt=$(  echo $dir_txt/${file_name}_${lang}.txt );
   #file_mp3=$(  echo $dir_mp3/${input_ws}_${lang}.mp3 );
   #    file_html=$(  echo $dir_html/${input_ws}_${lang}.html );
@@ -61,6 +76,8 @@ step1() {
   #file_wav=/tmp/output.wav
   trace "naming: input_wsp: $input_wsp" true
   trace "naming: file_mp3:  $file_mp3" true
+  indicator
+  commander sleep 3
   #trace "naming: file_wav:  $file_wav" true
 }
 
@@ -112,8 +129,8 @@ step3(){
       cmd="paplay2 $file_mp3"
       #    mpg321 $file_mp3 1> /dev/null
       print color 34 "[PLAYING] $cmd";  
-      commander_gxmessage "$cmd" #2>/tmp/err
-      commander sleep 2
+      commander "$cmd" #2>/tmp/err
+      comman  der sleep 2
     else
       print error "[Error] file not found: $file"
     fi
@@ -124,21 +141,24 @@ step3(){
 }
 steps(){
 
-  set_env
+  commander set_env
+
   #exiting
-  step0
-  step1
-  step2
+commander  step0
+ commander  step1
+commander  step2
   [ "$MODE_SOUND" = true ] &&  step3 || ( print color 36 '[reminder] MODE:MUTE' )
 }
-
-if [ $# -gt 1 ];then
-  lang="$1"
-  shift
+set_args "$@"
+lang="$arg0"
+input1="$opts"
+#if [ $# -gt 1 ];then
+#  lang="$1"
+  #shift
   #    input=$( echo "$@" | sed 's_\\n__g' ) 
-  input=$( sanitize_string "$@" )
-  steps  
-else
-  echo reason_of_death "need 2 arguments - got $#"
-fi
+  input=$( commander  sanitize_string1 "$input1" )
+steps  
+#else
+#  echo reason_of_death "need 2 arguments - got $#"
+#fi
 
