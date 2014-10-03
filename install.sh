@@ -2,11 +2,6 @@ clear
 pushd `dirname $0` >/dev/null
 
 exec 2> >( tee /tmp/err >&2)
-testing(){
- source library.cfg;
-use print; print ok Library Activated!; 
-}
-(set -e; testing ) || ( cat /tmp/err )
-
-
+ln -s $PWD/library.cfg /tmp
+ls -l /tmp/library.cfg
 popd >/dev/null

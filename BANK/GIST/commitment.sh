@@ -75,7 +75,7 @@ local line=$( dialog_add_line $file_done  "$line_recent" )
 local num=$( set_sleep )
 
 ext "$line"  &
-commander 'dialog_sleep $num $line'
+dialog_sleep $num "$line"
 
 }
 
