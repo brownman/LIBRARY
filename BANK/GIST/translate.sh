@@ -3,8 +3,8 @@
 
 set -o nounset
 #$cmd_trap_err
-trap - ERR
-exec -c
+#trap - ERR
+#exec -c
 #set -x
 #set -e
 #set -e
@@ -82,7 +82,7 @@ step1() {
 }
 
 step2(){
-  result=''
+  local result=''
   if [ "$input_wsp" ];then
     result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
     if [ "$result" ];then
@@ -94,11 +94,11 @@ step2(){
       output_wsp=$(echo "$output"|sed 's/ /+/g');
       output_ws=$(echo "$output"|sed 's/ /_/g');
       echo "$output"
-      broadcast "$output" &
+      commander broadcast "$output" &
       if [ "$phonetics" ];then
         echo  "$phonetics"
         sleep $delay_phone
-        broadcast "$phonetics" &
+       commander  broadcast "$phonetics" &
       fi  
     else
       echo reason_of_death 'no results'
@@ -130,7 +130,7 @@ step3(){
       #    mpg321 $file_mp3 1> /dev/null
       print color 34 "[PLAYING] $cmd";  
       commander "$cmd" #2>/tmp/err
-      comman  der sleep 2
+      commander sleep 2
     else
       print error "[Error] file not found: $file"
     fi
@@ -149,16 +149,16 @@ commander  step0
 commander  step2
   [ "$MODE_SOUND" = true ] &&  step3 || ( print color 36 '[reminder] MODE:MUTE' )
 }
-set_args "$@"
-lang="$arg0"
-input1="$opts"
-#if [ $# -gt 1 ];then
-#  lang="$1"
-  #shift
-  #    input=$( echo "$@" | sed 's_\\n__g' ) 
-  input=$( commander  sanitize_string1 "$input1" )
+#set_args "$@"
+#lang="$arg0"
+#input1="$opts"
+if [ $# -gt 1 ];then
+ lang="$1"
+shift
+   input=$( echo "$@" | sed 's_\\n__g' ) 
+  input=$( commander  sanitize_string1 "$input" )
 steps  
-#else
-#  echo reason_of_death "need 2 arguments - got $#"
-#fi
+else
+  echo reason_of_death "need 2 arguments - got $#"
+fi
 

@@ -19,7 +19,7 @@ str_to_arr_and_update_line(){
   test -v arr
   local str="$@" 
   local delimeter 
-( echo "$str" | grep '-'  &>/dev/null ) && { delimeter='-'; } || { delimeter=' '; }
+( echo "$str" | grep '-'  &>/dev/null ) && { delimeter=','; } || { delimeter=' '; }
 print color 33 "[ delimeter]  _${delimeter}_"
   old_IFS=$IFS
   IFS="$delimeter"
