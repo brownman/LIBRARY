@@ -64,18 +64,17 @@ echo $delay
 
 steps(){
 set_env
-set -e
 set -u
 local line_recent=''
-test -s $file_done && { set -o pipe_fail; line_recent=$(cat $file_done | tail -1 | cut -d' ' -f2- ); }
+test -s $file_done && { set -o pipefail; line_recent=$(cat $file_done | tail -1 | cut -d' ' -f2- ); }
 print color 33 line_recent $line_recent
 #exiting 
 sleep 1
 local line=$( dialog_add_line $file_done  "$line_recent" ) 
 local num=$( set_sleep )
-
+assert is_number "$num"
 ext "$line"  &
-dialog_sleep $num "$line"
+commander "dialog_sleep $num \"$line\""
 
 }
 

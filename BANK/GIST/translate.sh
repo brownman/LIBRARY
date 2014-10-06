@@ -10,12 +10,13 @@ set -o nounset
 #set -e
 #set -x
 trap_err(){
+    xcowsay error
   print func
   print error 
 $str_caller
 exit 0
 }
-#trap trap_err ERR
+trap trap_err ERR
 #export -f trap_err
 set_env(){
 use vars
