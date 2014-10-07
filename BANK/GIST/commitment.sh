@@ -43,9 +43,9 @@ echo
 }
 
 ext(){
-local line="$1"
+local line="$@"
 sleep 5
-word=$( exec 2>/dev/null    $builtin_string_to_buttons $line )
+word=$( commander    $builtin_string_to_buttons $line )
 test -n "$word" && ( commander        pipe_translate $word ) 
 }
 
@@ -73,7 +73,7 @@ sleep 1
 local line=$( dialog_add_line $file_done  "$line_recent" ) 
 local num=$( set_sleep )
 assert is_number "$num"
-ext "$line"  &
+ext $line  &
 commander "dialog_sleep $num \"$line\""
 
 }

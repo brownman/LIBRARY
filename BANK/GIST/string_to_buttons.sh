@@ -5,7 +5,7 @@
 #http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
 #clear
 source /tmp/library.cfg
-
+DELIMETER=','
 using(){
   use assert
   use trace
@@ -18,8 +18,8 @@ using(){
 str_to_arr_and_update_line(){
   test -v arr
   local str="$@" 
-  local delimeter 
-( echo "$str" | grep '-'  &>/dev/null ) && { delimeter=','; } || { delimeter=' '; }
+  local delimeter="$DELIMETER"
+( echo "$str" | grep $delimeter &>/dev/null ) || { delimeter=' '; }
 print color 33 "[ delimeter]  _${delimeter}_"
   old_IFS=$IFS
   IFS="$delimeter"
