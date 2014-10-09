@@ -62,6 +62,16 @@ let "delay = 60 * $min"
 echo $delay
 }
 
+show_progress(){
+local num=$( set_sleep )
+assert is_number "$num"
+commander time_update
+set -u
+let "hour2=$hour1 + 1"
+commander dialog_sleep $num \"$hour1:$minute1 - $line\" \"$hour1 - $hour2\"
+}
+
+
 steps(){
 set_env
 set -u
@@ -70,15 +80,10 @@ test -s $file_done && { set -o pipefail; line_recent=$(cat $file_done | tail -1 
 print color 33 line_recent $line_recent
 #exiting 
 sleep 1
-local line=$( dialog_add_line $file_done  "$line_recent" ) 
-local num=$( set_sleep )
-assert is_number "$num"
-ext $line  &
-commander "dialog_sleep $num \"$line\""
-
+line=$( dialog_add_line $file_done  "$line_recent" ) 
+commander "ext $line" &
+show_progress
 }
-
-
 
 delay=${1:-60}
 file_done=/tmp/done
