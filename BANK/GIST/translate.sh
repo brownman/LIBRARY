@@ -95,11 +95,18 @@ step2(){
       output_wsp=$(echo "$output"|sed 's/ /+/g');
       output_ws=$(echo "$output"|sed 's/ /_/g');
       echo "$output"
-      commander broadcast "$output" &
+#      commander broadcast "$output" &
+     #xcowsay $output &
+
+     notify-send "$output" &
       if [ "$phonetics" ];then
         echo  "$phonetics"
         sleep $delay_phone
-       commander  broadcast "$phonetics" &
+      # commander  broadcast "$phonetics" &
+
+ #xcowsay  $phonetics &
+
+ notify-send "$phonetics" &
       fi  
     else
       echo reason_of_death 'no results'

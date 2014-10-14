@@ -46,7 +46,7 @@ ext(){
 local line="$@"
 sleep 5
 word=$( commander    $builtin_string_to_buttons $line )
-test -n "$word" && ( commander        pipe_translate $word ) 
+test -n "$word" && ( commander        pipe_translate_random $word ) 
 }
 
 #$cmd_trap_err
