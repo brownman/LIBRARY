@@ -23,7 +23,7 @@ str_to_arr_and_update_line(){
 print color 33 "[ delimeter]  _${delimeter}_"
   old_IFS=$IFS
   IFS="$delimeter"
-line="Q${delimeter}$str"
+line="Q${delimeter}A${delimeter}$str"
 print color 33  "[line] $line "
   arr=($(echo "$line" ))
   IFS=$old_IFS
@@ -101,17 +101,21 @@ trace arr: ${arr[$num]}
 
 str_res="${arr[$num]}"
 trace RES:
-if [ "$str_res" != Q ];then
+if [ "$str_res" = Q ];then
+  trace skipping
+elif [ "$str_res" = A ];then
+echo $line_orig
+else
   echo $str_res
-else 
-  print color 36 skipping 
 fi
+
 }
 
 line="${@:-}"
+line_orig="$line"
 set_env
 str_res=$( steps )
-remove_trailing $str_res
+remove_trailing "$str_res"
 
 #print color 33 _${str_res}_ 
 #echo -n $str_res

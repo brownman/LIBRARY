@@ -7,7 +7,7 @@
 #set -x
 set -o nounset
 #set -e
-
+use point
 use vars
 use assert
 use flite1
@@ -25,7 +25,7 @@ use_sh string_to_buttons
 #exiting
 set_env(){
 #commander ensure touch $file_done
-
+NAME=ofer
 touch $file_done
 commander assert file_exist "$file_done"
 }
@@ -42,11 +42,11 @@ FILE
 echo
 }
 
-ext(){
+string_to_buttons_1(){
 local line="$@"
 sleep 5
 word=$( commander    $builtin_string_to_buttons $line )
-test -n "$word" && ( commander        pipe_translate_random $word ) 
+test -n "$word" && ( commander        pipe_translate $word ) 
 }
 
 #$cmd_trap_err
@@ -62,17 +62,45 @@ let "delay = 60 * $min"
 echo $delay
 }
 
-show_progress(){
-local num=$( set_sleep )
-assert is_number "$num"
+dialog_sleep_1(){
+#local num=$( set_sleep ${1:-})
+#assert is_number "$num"
+local sec="$1"
+shift
+local line="$@"
 commander time_update
 set -u
 let "hour2=$hour1 + 1"
-commander dialog_sleep $num \"$hour1:$minute1 - $line\" \"$hour1 - $hour2\"
+commander dialog_sleep $sec \"$hour1:$minute1 - $line\" \"$hour1 - $hour2\"
+}
+
+intro_give(){
+xcowsay 'give 1 minute' 
+xcowsay 'win 9 minutes' 
+xcowsay '+ blessing' 
+}
+
+intro_take(){
+xcowsay 'won a blessing !'
+}
+flite_1(){
+local   str="$@"
+flite1 "$str" &
+sleep .2
+flite1 "$str" &
+sleep .2
+flite1 "$str" 
+
+}
+intro_robot(){
+xcowsay 'tell the robot what to do later'
+flite_1 "$NAME"
+sleep 1
+flite_1 'it is easy for a robot' 
 }
 
 
-steps(){
+run(){
 set_env
 set -u
 local line_recent=''
@@ -81,8 +109,21 @@ print color 33 line_recent $line_recent
 #exiting 
 sleep 1
 line=$( dialog_add_line $file_done  "$line_recent" ) 
-commander "ext $line" &
-show_progress
+string_to_buttons_1  $line
+}
+
+steps(){
+intro_robot
+run
+dialog_sleep_1 60 'give'
+intro_take
+run
+dialog_sleep_1 480 'take'
+intro_give
+run
+dialog_sleep_1 60 'give'
+point_up
+point_show
 }
 
 delay=${1:-60}

@@ -163,8 +163,13 @@ commander  step2
 if [ $# -gt 1 ];then
  lang="$1"
 shift
-   input=$( echo "$@" | sed 's_\\n__g' ) 
-  input=$( commander  sanitize_string1 "$input" )
+   input0=$( echo "$@" | sed 's_\\n__g' ) 
+   input=$( sanitize_string1 "$input0" )
+print line
+print color 33 $lang
+print color 35 $input
+print line
+
 steps  
 else
   echo reason_of_death "need 2 arguments - got $#"
