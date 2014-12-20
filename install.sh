@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+echo 1>&2 '[INSTALLING] library'
 file_self=$0
 dir_self=$( cd `dirname $file_self`;pwd )
 
