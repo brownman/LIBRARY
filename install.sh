@@ -2,9 +2,10 @@
 file_self=$0
 dir_self=$( cd `dirname $file_self`;pwd )
 
-pushd $dir_self >/dev/null
+#pushd $dir_self >/dev/null
 
 #exec 2> >( tee /tmp/err >&2)
-ln -s $PWD/library.cfg /tmp
+ln -s $dir_self/library.cfg /tmp
+ln -s $dir_self /tmp/dir_library
 ls -lt /tmp/library.cfg
-popd >/dev/null
+#popd >/dev/null
