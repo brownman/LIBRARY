@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+file_self=$0
+dir_self=$( cd `dirname $file_self`;pwd )
 
-pushd `dirname $0` >/dev/null
+pushd $dir_self >/dev/null
 
 #exec 2> >( tee /tmp/err >&2)
 ln -s $PWD/library.cfg /tmp
