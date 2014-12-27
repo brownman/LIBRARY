@@ -1,0 +1,5 @@
+language: python
+script:
+  - chmod +x ./install.sh
+  - bash -c ./install.sh
+  
