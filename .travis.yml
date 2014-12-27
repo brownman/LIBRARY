@@ -1,5 +1,5 @@
 language: python
 script:
-  - chmod +x ./install.sh
-  - bash -c ./install.sh
+  - chmod +x ./travis.sh
+  - bash -c ./travis.sh
   
