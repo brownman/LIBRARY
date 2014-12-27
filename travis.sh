@@ -8,7 +8,7 @@ set_env(){
 
 test1(){
   cat /tmp/target
-  gxmessage_confirm a b c
+  ./test.sh
 }
 
 steps(){
