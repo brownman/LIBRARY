@@ -2,28 +2,55 @@
 
 LIBRARY
 ==
-- https://github.com/brownman/idiot2genius
 
-dir structure:
+- [Tricks explained](https://github.com/brownman/idiot2genius)
+
+Directory structure:
 ------
-- BANK/$category/$script
+```
+$ BANK / $category / $sub-category / $filename .{cfg,sh}
 
-scripts:
-----
-- helpers files ( .cfg )
-- scripts ( .sh )
+#Example: 
+$ BANK/PRINT/print_line.cfg 
+```
 
-workflow
+script types
 ----
+- **LONG LIFETIME:**
+- source the file to update the Shell-Environment
+- .cfg : export functions
+```
+export -f some_func 
+```
+- .conf: export variables
+```
+export my_var='x'
+alias my_alias='y'
+```
+
+- **SHORT LIFETIME: **
+- run the file on demand
+- .sh: regular scripts 
+```
+./translate.sh ru dog #translate 'dog' to 'russian'
+```
+
+
+
+WORKFLOW
+----
+
 - Install:
 ```
 $ ./install.sh                          #creates symlink to path: /tmp
 $ ls -l /tmp/library.cfg                #this is the anchor (absolute path)
 ```
+
 - Activate:
 ```
-$ source /tmp/library.cfg               #export function: use() , use_sh() , finder()
+$ source /tmp/library.cfg               #export function: use() , use_sh() , finder(), updatedb1
 ```
+
 - Expose:
 ```
 $ cat /tmp/target                       #current index
