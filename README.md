@@ -3,7 +3,7 @@
 LIBRARY
 ==
 
-- [Tricks explained](https://github.com/brownman/idiot2genius)
+- [Bash Tricks - explained](https://github.com/brownman/idiot2genius)
 
 Directory structure:
 ------
@@ -42,25 +42,38 @@ WORKFLOW
 
 - Install:
 ```
-$ ./install.sh                          #creates symlink to path: /tmp
-$ ls -l /tmp/library.cfg                #this is the anchor (absolute path)
+$ ./install.sh                          #creates symlink on path: /tmp
+$ ls -l /tmp/library.cfg                #this is the anchor for the project (absolute path)
 ```
 
 - Activate:
 ```
-$ source /tmp/library.cfg               #export function: use() , use_sh() , finder(), updatedb1
+$ source /tmp/library.cfg               #export function: use() , use_sh() , finder(), updatedb1()
 ```
 
 - Expose:
 ```
 $ cat /tmp/target                       #current index
-$ updatedb1                             #update the index if you added new files
+$ touch BANK/my_file.cfg                #USER ACTION
+$ touch BANK/my_file.sh                 #USER ACTION
+$ updatedb1                             #update the index:  after adding new files ( under BANK/ )
+$ finder my_file                        #will print the location of the new file: my_file.cfg
+$ finder my_file                        #will print the location of the new file: my_file.sh
 ```
+
 - Use:
 ```
-$ use print
-$ print ok
-$ finder translate sh 
+#Example: for enabling the command: print ok
+$ cat /tmp/target | grep print          #if you want to make sure that file: print.cfg is indexed
+$ use print                             #it source file: print.cfg (wherever located)
+$ type print                            #the file print.cfg has command: export -f print
+$ print ok                              #pass parameter: 'ok' to function: print()
+
+#Example: for 
+$ cat /tmp/target | grep translate      #if you are curious where translate.sh is
+$ finder translate sh                   #if you are curious where translate.sh is
+$ use_sh translate                      #this will export variable: translate_sh (which point to the script)
+$ $translate_sh ru dog                  #this will actualy run the file: translate.sh with params: ( ru , dog )
 ```
 - Update:
 ```
