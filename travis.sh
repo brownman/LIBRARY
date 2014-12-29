@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -u
-set -x
 
 trap_err_travis(){
   echo $FUNCNAME
@@ -22,6 +21,7 @@ set_env(){
 
 test1(){
   commander cat /tmp/target
+  assert file_exist "$dir_self/test.sh"
   commander $dir_self/test.sh
 }
 
