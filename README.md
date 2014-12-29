@@ -61,23 +61,27 @@ $ finder my_file                        #will print the location of the new file
 $ finder my_file                        #will print the location of the new file: my_file.sh
 ```
 
-- Use:
+- **Use:**
+- Example: for enabling the command: print ok
 ```
-#Example: for enabling the command: print ok
 $ cat /tmp/target | grep print          #if you want to make sure that file: print.cfg is indexed
 $ use print                             #it source file: print.cfg (wherever located)
 $ type print                            #the file print.cfg has command: export -f print
 $ print ok                              #pass parameter: 'ok' to function: print()
+```
 
-#Example: for 
+- Example: for enabling the command: $translate_sh ru dog
+```
 $ cat /tmp/target | grep translate      #if you are curious where translate.sh is
 $ finder translate sh                   #if you are curious where translate.sh is
 $ use_sh translate                      #this will export variable: translate_sh (which point to the script)
 $ $translate_sh ru dog                  #this will actualy run the file: translate.sh with params: ( ru , dog )
 ```
-- Update:
+
+- Update the library anchor:
 ```
-$ alias libraryE  
+$ alias libraryE
+$ libraryE
 ```
+
 - to activate the library: source /tmp/library.cfg
-- to edit library.cfg:  libraryE
