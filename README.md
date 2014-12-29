@@ -19,7 +19,7 @@ script types
 
 - **LONG LIFE-CYCLE:** source the file to update the Shell-Environment
 
-- **.cfg**: export functions
+- ***.cfg***: export functions
 ```
 export -f some_func 
 ```
