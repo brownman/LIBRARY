@@ -15,9 +15,9 @@ $ BANK/PRINT/print_line.cfg
 ```
 
 script types
-----
+====
 
-- **LONG LIFE-CYCLE:** source the file to update the Shell-Environment
+- **LONG LIFE-CYCLE** ( source the file to update the Shell-Environment )
 
 - ***.cfg***: export functions
 ```
@@ -30,7 +30,7 @@ export my_var='x'
 alias my_alias='y'
 ```
 
-- **SHORT LIFE-CYCLE:** run the file on demand
+- **SHORT LIFE-CYCLE** ( run the file on demand )
 - ***.sh***: regular scripts 
 ```
 ./translate.sh ru dog #translate 'dog' to 'russian'
