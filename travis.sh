@@ -24,11 +24,16 @@ test1(){
   assert file_exist "$dir_self/test.sh"
   commander $dir_self/test.sh
 }
+step1(){
+  local str=$1
+  echo "[STEP] $str" 
+  eval "$str" 1>/tmp/out 2>/tmp/err || { cat /tmp/err ; exit 1; }
+}
 
 steps(){
-  install
-  set_env
-  test1
+  step1 install
+  step1 set_env
+  step1 test1
 }
 
 
