@@ -2,6 +2,10 @@
 #pushd `dirname $0` >/dev/null
 
 #exec 2> >( tee /tmp/err >&2)
+set -u
+set -e
+set -x
+
 show_magic(){
   use print; 
   print ok Library Activated!; 
