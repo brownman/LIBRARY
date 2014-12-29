@@ -16,21 +16,22 @@ $ BANK/PRINT/print_line.cfg
 
 script types
 ----
-- **LONG LIFETIME:**
-- source the file to update the Shell-Environment
-- .cfg : export functions
+
+- LONG LIFETIME: source the file to update the Shell-Environment
+
+- **.cfg**: export functions
 ```
 export -f some_func 
 ```
-- .conf: export variables
+
+- **.conf**: export variables
 ```
 export my_var='x'
 alias my_alias='y'
 ```
 
-- **SHORT LIFETIME: **
-- run the file on demand
-- .sh: regular scripts 
+- SHORT LIFETIME: run the file on demand
+- **.sh**: regular scripts 
 ```
 ./translate.sh ru dog #translate 'dog' to 'russian'
 ```
