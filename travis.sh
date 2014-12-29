@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -u
-set -e
 
 dir_self=$( cd `dirname $0`; pwd )
 
 install(){
+  chmod u+x *.sh $dir_self -R
   $dir_self/install.sh
 }
 
@@ -13,8 +13,8 @@ set_env(){
 }
 
 test1(){
-  cat /tmp/target
-  $dir_self/test.sh
+  commander cat /tmp/target
+  commander $dir_self/test.sh
 }
 
 steps(){
