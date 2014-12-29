@@ -24,14 +24,14 @@ script types
 export -f some_func 
 ```
 
-- **.conf**: export variables
+- ***.conf***: export variables
 ```
 export my_var='x'
 alias my_alias='y'
 ```
 
 - **SHORT LIFE-CYCLE:** run the file on demand
-- **.sh**: regular scripts 
+- ***.sh***: regular scripts 
 ```
 ./translate.sh ru dog #translate 'dog' to 'russian'
 ```
