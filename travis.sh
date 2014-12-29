@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -u
 
+trap_err_travis(){
+  echo $FUNCNAME
+  echo "CALLER: $(caller)"
+}
+export -f trap_err_travis
+trap trap_err_travis ERR
+
 dir_self=$( cd `dirname $0`; pwd )
 
 install(){
