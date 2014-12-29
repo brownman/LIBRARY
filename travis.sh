@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -u
+set -x
 
 trap_err_travis(){
   echo $FUNCNAME
