@@ -66,7 +66,7 @@ $ finder my_file sh                     #will print the location of the new file
 ```
 
 - **Use:**
-- Example: for enabling the shell-command: print ok
+- Example: for enabling the shell-command: ***$ print ok***
 ```
 $ cat /tmp/target | grep print          #if you want to make sure that file: print.cfg is indexed
 $ use print                             #it source file: print.cfg (wherever located)
@@ -74,7 +74,7 @@ $ type print                            #the file print.cfg has command: export 
 $ print ok                              #pass parameter: 'ok' to function: print()
 ```
 
-- Example: for enabling the shell-command: $translate_sh ru dog
+- Example: for enabling the shell-command: ***$ $translate_sh ru dog***
 ```
 $ cat /tmp/target | grep translate      #if you are curious where translate.sh is
 $ finder translate sh                   #if you are curious where translate.sh is
