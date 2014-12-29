@@ -1,5 +1,11 @@
+#!/usr/bin/env bash
+set -u
+set -e
+
+dir_self=$( cd `dirname $0`; pwd )
+
 install(){
-  ./install.sh
+  $dir_self/install.sh
 }
 
 set_env(){
@@ -8,7 +14,7 @@ set_env(){
 
 test1(){
   cat /tmp/target
-  ./test.sh
+  $dir_self/test.sh
 }
 
 steps(){
