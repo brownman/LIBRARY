@@ -1,5 +1,6 @@
 #!/bin/bash
 # http://xmodulo.com/2014/05/take-screenshot-command-line-linux.html
+killall byzanz-record
 source /tmp/library.cfg
 clear
 set -o nounset
@@ -29,8 +30,8 @@ xcowsay exiting &
 }
 
 set_env(){
-  resx=1280
-  resy=800
+  resx=1920 #1280
+  resy=1080 #800
 
   time_update
   time1="${time_ws}_${date_ws}"
@@ -107,8 +108,8 @@ dialog_optional 'view recent recording?' && showing
 }
 
 while :;do
-commander dialog_optional  'record new screencast ?' 'y/n' || break
-steps #& # && showing
+commander dialog_optional  'record new screencast ?' 'y/n' && steps || exit
+#& # && showing
 #echo $! > /tmp/screencast.pid
 #cat1 /tmp/screencast.pid true
 done
@@ -129,3 +130,4 @@ done
 #http://pkgs.org/download/byzanz
 #http://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
 #set -e
+killall byzanz-record

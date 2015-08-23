@@ -1,3 +1,4 @@
+#!/bin/bash
 #info: translate a string using google scrapping
 #depend: wget sox
 
@@ -81,11 +82,17 @@ step1() {
   commander sleep 3
   #trace "naming: file_wav:  $file_wav" true
 }
+get_word(){
+
+local cmd="wget -U \"Mozilla/5.0\" -qO - \"http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang\""
+commander $cmd
+
+}
 
 step2(){
   local result=''
   if [ "$input_wsp" ];then
-    result=$(wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$input_wsp&sl=en&tl=$lang" ) 
+    result=$( get_word ) 
     if [ "$result" ];then
       #echo "$result" >> $TODAY_DIR/translate.json
       cleaner=$(echo "$result" | sed 's/\[\[\[\"//') 
@@ -94,6 +101,7 @@ step2(){
       output=$(echo "$cleaner" | cut -d \" -f 1)
       output_wsp=$(echo "$output"|sed 's/ /+/g');
       output_ws=$(echo "$output"|sed 's/ /_/g');
+      echo $output_wsp
       echo "$output"
 #      commander broadcast "$output" &
      #xcowsay $output &
@@ -113,16 +121,20 @@ step2(){
     fi
   fi
 }
-
+get_sound(){
+    local args="$@"
+    local cmd="wget -U Mozilla -q -O - \"$args\" \"translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp}\""
+    commander $cmd > $file_mp3 
+}
 step3(){
+
   local cmd
   local chars=$( echo "$input" | wc --chars  )
   local words=$( echo "$input" | wc --words  )
   if [ $chars -lt $MAX_CHARS ] && [ $words -lt $MAX_WORDS ] ;then
     if [ ! -f "$file_mp3" ];then
-      wget -U Mozilla -q -O - "$@" translate.google.com/translate_tts?ie=UTF-8\&tl=${lang}\&q=${output_wsp} > $file_mp3 
+        get_sound
     else
-
       trace "use cached file" true
       commander "du -b $file_mp3" 1>&2 
     fi
