@@ -98,7 +98,8 @@ local sec="$1"
 local title0="$2"
 local line="$3"
 time_update
-local title="$hour1:$minute1 - $title0"
+let "hour2 = $hour1  + 1"
+local title="$hour1 till $hour2 - $title0"
 #set -u
 #let "hour2 = $hour1 + 1"
 dialog_sleep $sec "$line" "$title"
@@ -147,16 +148,18 @@ line=$( dialog_add_line $file_done "$title" "$entry0" )
 commander compute_line $line
 #echo $line
 
-dialog_sleep_1 $delay 'wish' "$line"
+dialog_sleep_1 $delay 'current trello: ' "$line"
 }
 
 steps(){
   set_env
   point_up
   point_show
-run 100 'WISH' 'thanks '
-run 100 'TAKE' 'breakthrough '
-run 100 'EASY' 'maybe easier '
+#run 100 'WISH' 'thanks '
+#run 100 'TAKE' 'breakthrough '
+run 100 'trello progress' 'Trello id: '
+
+run 100 'trello progress' 'Trello id: '
 }
 
 delay=${1:-60}
